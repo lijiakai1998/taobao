@@ -1,0 +1,48 @@
+.login{
+    background: linear-gradient(45deg,#ea9942,#d05032);
+    height: 451px;
+    width: 361px;
+    float: right;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-50%,-75%);
+}
+
+.login_form{
+    margin-top: 75px;
+}
+
+.form-group{
+    margin: 35px 0;
+}
+
+.font{
+    position: relative;
+    left: 30px;
+}
+
+.txt{
+    height: 35px;
+    width: 216px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    text-indent: 25px;
+    padding: 5px;
+    background: none;
+    border-bottom: 2px solid ;
+}
+
+.rain{
+    display: block;
+    background: #F8DF83;
+    z-index: -1;
+    position: absolute;
+}
+
+.bgk{
+    height: 100%;
+    background: url("../fonts/sea.jpeg");
+    background-repeat: no-repeat;
+}

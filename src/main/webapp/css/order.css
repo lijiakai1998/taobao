@@ -1,0 +1,265 @@
+/*生成订单*/
+.name{
+    margin-left: 400px;
+}
+
+/*返回首页*/
+.to-home{
+    color: white;
+    width: 100px;
+    height: auto;
+    float: left;
+    position: relative;
+    left: 800px;
+    top:100px;
+}
+.to-home a{
+    color: white;
+}
+/*标题*/
+.title{
+    width: 1200px;
+    height: 100px;
+    border-bottom: 2px solid #ff6637;
+    margin:0 auto;
+}
+.title span{
+    color: #ff6637;
+    font-size: 30px;
+    letter-spacing: 10px;
+    margin-left: 50px;
+    line-height: 100px;
+}
+
+/*内容*/
+.main{
+    width: 1000px;
+    height: auto;
+    margin: 50px auto;
+}
+.fill{
+    margin-bottom: 30px;
+}
+.fill-bu {
+    width: 150px;
+    height: 50px;
+    background-color: white;
+    border: 1px solid #979797;
+    border-radius: 5px;
+    margin-left: 80px;
+}
+.message{
+    width: 600px;
+    height: auto;
+    border: 1px solid #979797;
+    border-radius: 10px;
+    padding: 10px 50px;
+    margin: 30px 20px;
+    display:none;
+}
+.message li{
+    margin-top: 5px;
+}
+
+
+/*填写收货信息*/
+/*弹出窗口*/
+.layer{
+    display: none;
+    z-index: 9999;
+    position: fixed;
+    left:0;
+    TOP:0;
+    width: 500px;
+    height: 350px;
+    padding-left: 30px;
+    padding-top: 30px;
+    background-color: white;
+    border: 3px solid #eeeeee;
+}
+.lay-title{
+    height: 50px;
+    font-size: 30px;
+    font-family: 幼圆;
+}
+.layer li{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.kuang{
+    width: 230px;
+    height: 25px;
+    border: 1px solid grey;
+    position: absolute;
+    right: 100px;
+}
+.kuang2{
+    width: 230px;
+    height: 100px;
+}
+label{
+    font-size: 20px;
+    color: grey;
+}
+.tip{
+    width: 200px;
+    height: 20px;
+    position: absolute;
+    bottom: 80px;
+    left:150px;
+    color: grey;
+}
+.error{
+    color: red;
+}
+.sub{
+    width: 200px;
+    height: 50px;
+    position: absolute;
+    bottom: 20px;
+    left:150px;
+    background-color: #ff6637;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-size:20px;
+}
+/*遮罩层*/
+.cover{
+    display:none;
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1;
+    background-color:#000;
+    opacity:0.5;
+}
+
+
+/*订单信息*/
+.name{
+    margin-left: 200px;
+}
+.title{
+    width: 1700px;
+    height: 100px;
+    border-bottom: 2px solid #ff6637;
+    margin:30px auto;
+}
+.title span{
+    color: #ff6637;
+    font-size: 40px;
+    letter-spacing: 10px;
+    margin-left: 50px;
+    line-height: 100px;
+}
+th{
+    color: #ff6637;
+}
+.main{
+    width: 1000px;
+    height: auto;
+    margin: 50px auto;
+}
+table{
+    margin-top: 30px;
+    width: 1700px;
+    /*background: #dac3a6;*/
+    text-align: center;
+    border: 2px solid #ff6637;
+
+}
+
+table{
+    width: 900px;
+    height: auto;
+    margin: 30px auto;
+}
+tr{
+    text-align: center;
+}
+th{
+    border-bottom: 3px solid #ff6637;
+    margin: 20px auto;
+}
+.check{
+    width: 20px;
+    height: 20px;
+    color: #ff6637;
+}
+.delete{
+    color: #1b1b1b;
+}
+.count-input{
+    width: 50px;
+    height: 35px;
+    text-align: center;
+}
+.add{
+    padding: 5px 5px;
+    font-size: 20px;
+    border: 1px solid #bfbcc2;
+}
+.reduce{
+    padding: 5px 5px;
+    font-size: 20px;
+    border: 1px solid #bfbcc2;
+}
+.Settlement{
+    position: relative;
+    height: 80px;
+    line-height: 80px;
+    margin: 30px auto;
+
+}
+.fl{
+    height: 80px;
+    float: left;
+    position: relative;
+    left:20px;
+    margin-left: 50px;
+}
+.fr{
+    height: 80px;
+    position: relative;
+    left:300px;
+    float: left;
+    margin-left: 50px;
+}
+.money{
+    color: red;
+    font-weight: bold;
+}
+.closing{
+    width: 100px;
+    height: 70px;
+    color: #ff6637;
+    font-size: 20px;
+    font-weight:bold;
+    line-height: 80px;
+
+}
+
+.to-cart{
+
+    float: right;
+    color: #ff6637;
+    text-decoration: underline;
+}
+
+/*收货信息*/
+.close{
+    width: 40px;
+    height: 40px;
+    color: #3a3a3a;
+    line-height: 40px;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    top:0;
+}
+.close:hover{
+    background-color: rgba(255,102,55,0.7);
+}

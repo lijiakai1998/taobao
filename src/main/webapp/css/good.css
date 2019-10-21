@@ -1,0 +1,92 @@
+.goods{
+    height: 465px;
+    width: 1000px;
+    margin: 150px auto;
+    background: #F0F1F0;
+}
+
+.good-left{
+    height: 100%;
+}
+
+.good-left img{
+    height: 100%;
+    width: 100%;
+}
+
+.good-right{
+    height: 100%;
+}
+
+.right-top{
+    height: 50%;
+}
+
+.right-top dt{
+    height: 70px;
+    line-height: 70px;
+    margin: 0 50px 0 10px;
+}
+
+.right-top dd{
+    height: 70px;
+    line-height: 70px;
+}
+
+.right-bottom{
+    height: 50%;
+}
+
+.right-bottom > ul{
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    overflow: hidden;
+    border-top: 1px dotted #c9c9c9;
+    border-bottom: 1px dotted #c9c9c9;
+}
+
+.right-bottom li{
+    float: left;
+    margin: 10px 0;
+    height: 20px;
+    width: 200px;
+    text-align: center;
+    line-height: 20px;
+}
+
+.buy{
+    height: 40px;
+    width: 180px;
+    float: left;
+    background: #FFEDED;
+    border: 1px solid #FF0036;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.buy > a{
+    color: #FF0036;
+    line-height: 40px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.addshopping{
+    height: 40px;
+    width: 180px;
+    float: left;
+    background: #FF0036;
+    border: 1px solid #FF0036;
+    text-align: center;
+    cursor: pointer;
+}
+
+.addshopping > a{
+    color: #FFFFFF;
+    line-height: 40px;
+    text-decoration: none;
+    font-size: 18px;
+}

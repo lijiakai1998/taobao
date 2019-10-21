@@ -1,0 +1,35 @@
+.container{
+    width: 1182px;
+    border: 1px solid #F1F3F4;
+    background: #F1F3F4;
+}
+
+.good{
+    height: 300px;
+    width: 220px;
+    float: left;
+    margin: 20px 10px 10px 0;
+}
+
+.good:hover{
+    border: 1px solid red;
+}
+
+.good img{
+    height: 220px;
+    width: 100%;
+}
+
+.good span{
+    color: #FF4400;
+    font-size: 20px;
+    margin: 5px 0 5px 5px;
+}
+
+.good a{
+    color: #000;
+}
+
+.good a:hover{
+    color: #FF4400;
+}

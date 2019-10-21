@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.weitao">
+     <insert id="zhuce" parameterType="com.entity.administrators">
+          insert into administrators(d_name,d_password) values (#{dName},#{dPassword})
+     </insert>
+     <select id="query" resultType="com.entity.user">
+          select * from user where u_niCheng=#{name} and u_password=#{pass}
+     </select>
+     <select id="adminSelect" resultType="com.entity.administrators">
+          select * from administrators where d_name=#{dname}
+     </select>
+     <select id="adminLogin" resultType="com.entity.administrators">
+           select * from administrators where d_name=#{dName} and d_password=#{dPassword}
+     </select>
+     <select id="userList" resultType="com.entity.user">
+          select * from user
+     </select>
+     <select id="userList2" resultType="com.entity.user" parameterType="com.entity.user">
+          select * from user
+          <where>
+               <if test="uNiCheng!=null and uNiCheng!=''">
+                   and u_niCheng like '%${uNiCheng}%'
+               </if>
+               <if test="uAddress!=null and uAddress!=''">
+                    and u_address like '%${uAddress}%'
+               </if>
+               <if test="uQq!=null and uQq!=''">
+                    and u_qq like '%${uQq}%'
+               </if>
+          </where>
+     </select>
+     <update id="xiugai1" parameterType="com.entity.user">
+          update user
+          <set>
+               <if test="uNiCheng!=null and uNiCheng!=''">
+                    u_niCheng=#{uNiCheng},
+               </if>
+               <if test="uQq!=null and uQq!=''">
+                    u_qq=#{uQq},
+               </if>
+              <if test="uPostcode!=null and uPostcode!=''">
+                   u_postcade=#{uPostcode},
+              </if>
+              <if test="uAddress!=null and uAddress!=''">
+                   u_address=#{uAddress},
+              </if>
+              <if test="uTel!=null and uTel!=''">
+                   u_tel=#{uTel}
+              </if>
+          </set>
+          where u_id=#{uId}
+     </update>
+     <select id="chankan2" parameterType="integer" resultType="com.entity.user">
+          select * from user where u_id=#{uid}
+     </select>
+     <delete id="shanChu1">
+          delete from user where u_id=#{uid}
+     </delete>
+
+
+     <sql id="key">
+          <trim suffixOverrides=",">
+               <if test="uNiCheng!=null">
+               u_niCheng,
+               </if>
+               <if test="uPassword!=null">
+                    u_password,
+               </if>
+               <if test="uRealName!=null">
+                    u_realName,
+               </if>
+               <if test="uSex!=null">
+                    u_sex,
+               </if>
+               <if test="uQq!=null">
+                    u_qq,
+               </if>
+               <if test="uAddress!=null">
+                    u_address,
+               </if>
+               <if test="uPostcode!=null">
+                    u_postcode,
+               </if>
+               <if test="uTel!=null">
+                    u_tel,
+               </if>
+          </trim>
+     </sql>
+     <sql id="value">
+          <trim suffixOverrides=",">
+               <if test="uNiCheng!=null">
+                    #{uNiCheng},
+               </if>
+               <if test="uPassword!=null">
+                    #{uPassword},
+               </if>
+               <if test="uRealName!=null">
+                    #{uRealName},
+               </if>
+               <if test="uSex!=null">
+                    #{uSex},
+               </if>
+               <if test="uQq!=null">
+                    #{uQq},
+               </if>
+               <if test="uAddress!=null">
+                    #{uAddress},
+               </if>
+               <if test="uPostcode!=null">
+                    #{uPostcode},
+               </if>
+               <if test="uTel!=null">
+                    #{uTel},
+               </if>
+          </trim>
+     </sql>
+     <insert id="userAdd" parameterType="com.entity.user">
+           insert into user (<include refid="key"/>) values (<include refid="value"/>)
+     </insert>
+
+    <insert id="addGoods" parameterType="com.entity.goods">
+        insert into
+        goods (g_name, g_price, g_store, g_image, g_attribute, g_category)
+        values (#{gName}, #{gPrice}, #{gStore}, #{gImage}, #{gAttribute}, #{gCategory})
+    </insert>
+
+
+    <select id="showAllBuys" resultType="com.entity.appraise">
+    select dingdan.d_id, user.u_nicheng,goods.g_name,goods.g_price,goods.g_image,dingdan.d_appraise,
+    dingdan.d_time from user,goods,dingdan where d_uid=u_id and d_gid=g_id
+</select>
+    <delete id="delBuysById" parameterType="java.lang.Integer">
+        delete from dingdan where d_id=#{dId}
+    </delete>
+    <!--模糊查询-->
+    <select id="search" parameterType="com.entity.appraise" resultType="com.entity.appraise">
+        select dingdan.d_id, user.u_nicheng,goods.g_name,goods.g_price,goods.g_image,dingdan.d_appraise,
+        dingdan.d_time from user,goods,dingdan
+        where  d_uid=u_id and d_gid=g_id
+        <if test="uNiCheng!=null and uNiCheng!=''">
+            and user.u_nicheng like '%${uNiCheng}%'
+        </if>
+        <if test="gName!=null and gName!=''">
+            and goods.g_name like '%${gName}%'
+        </if>
+
+    </select>
+
+    <select id="goods" resultType="com.entity.goods">
+        select * from goods
+    </select>
+    
+
+
+    <!--<delete id="delGoodById" parameterType="integer">
+        delete from goods where g_id = #{gId}
+    </delete>-->
+
+    <update id="updateGoods" parameterType="com.entity.goods">
+        update goods
+        set g_name = #{gName}, g_price = #{gPrice}, g_store = #{gStore}, g_image = #{gImage}
+        where g_id = #{gId}
+    </update>
+    <select id="buy1" resultType="com.entity.goods">
+    select * from goods where g_id =#{gid};
+    </select>
+
+    <insert id="insert1" parameterType="com.entity.dingdan">
+        insert into dingdan(d_uid,d_gid,d_dingdanhao,d_time,d_shuliang,d_zhuangtai) values (#{dUid},#{dGid},#{dDingdanhao},now(),#{dShuliang},#{dZhuangtai})
+    </insert>
+    <update id="updatezhuangtai">
+        update dingdan set d_zhuangtai=1
+        where d_dingdanhao=#{dDingdanhao}
+    </update>
+<!--购物车-->
+    <insert id="insertIntoShoppingCart" parameterType="com.entity.shoppingCat">
+         insert  into shoppingcart(s_uid,s_gid,s_count) values(#{sUid},#{sGid},#{sCount})
+     </insert>
+    <select id="showAllShoppingGoods" resultType="com.entity.shoppingCat" parameterType="java.lang.Integer" >
+        select * from  shoppingcart where s_uid=#{sUid}
+    </select>
+    <delete id="delShoppingGoodsByGid" parameterType="java.lang.Integer">
+        delete from shoppingcart where s_gid=#{sGid}
+    </delete>
+
+    <select id="selectById" parameterType="java.lang.Integer" resultType="com.entity.shoppingCat">
+        select * from shoppingcart where s_gid=#{sGid}
+    </select>
+    <update id="updateCart" parameterType="com.entity.shoppingCat">
+    update shoppingcart set s_count=#{sCount} where s_id=#{sId}
+    </update>
+
+
+    <insert id="addGood" parameterType="com.entity.goods">
+        insert into goods(g_name,g_price,g_store,g_pageView,g_image) values(#{gName},#{gPrice},#{gStore},#{gPageView},#{gImage})
+    </insert>
+    <select id="showAllGoods" resultType="com.entity.goods">
+        select * from goods
+    </select>
+    <delete id="delGoodById" parameterType="java.lang.Integer">
+        delete  from goods where g_id=#{gId}
+    </delete>
+    <select id="showOneGoodsById" resultType="com.entity.goods" parameterType="java.lang.Integer">
+        select * from goods where g_id=#{gId}
+    </select>
+    <update id="updateGoodsById" parameterType="com.entity.goods">
+        update goods set g_name=#{gName},g_price=#{gPrice},g_store=#{gStore},g_pageView=#{gPageView},g_image=#{gImage}
+        where g_id=#{gId}
+    </update>
+
+
+</mapper>

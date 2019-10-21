@@ -1,0 +1,96 @@
+body,h1,h2,h3,h4,h5,h6,p,ul,ol,li,form,img,dl,dt,dd,table,th,td,blockquote,fieldset,div,strong,label,em{margin:0;padding:0;border:0;}
+ul,ol,li{list-style:none;}
+input,button{margin:0;font-size:12px;vertical-align:middle;}
+body{font-size:12px;font-family:Arial, Helvetica, sans-serif; margin:0 auto;}
+table{border-collapse:collapse;border-spacing:0;}
+p{line-height:24px}
+.collect{
+    margin: 20px 200px;
+}
+.left{
+    width: 30%;
+    float: left;
+}
+.shopimg img{
+    width: 11%;
+    height: 11%;
+    border-radius: 100%;
+    float: left;
+}
+.shopcon{
+    width: 60%;
+    margin-left: 10%;
+    padding-left: 5%;
+}
+.shopcon h3{
+    font-size: 1.3em;
+    /* border: aquamarine; */
+    font-weight: 700;
+}
+.delete img{
+    margin: 0 0 30px 5px;
+    width: 3%;
+    height: 3%;
+    float: right;
+}
+.right{
+    width: 70%;
+    float: right;
+    height: 310px;
+}
+#sales-product-main{
+    OVERFLOW: hidden;
+    PADDING-TOP: 9px;
+    POSITION: relative;
+}
+#sales-product-main ul{
+    WIDTH: 1350px;
+}
+#sales-product-main LI A.a1{
+    DISPLAY: block;
+    MARGIN: 0px auto;
+    VERTICAL-ALIGN: middle;
+    WIDTH: 187px;
+    HEIGHT: 178px;
+    TEXT-ALIGN: center
+}
+#sales-product-main LI A.sales-product-pic span{
+    DISPLAY: inline-block;
+    VERTICAL-ALIGN: middle;
+    WIDTH: 0px
+}
+#sales-product-main LI SPAN.price_symbol{
+    FONT-SIZE: 23px;
+    LINE-HEIGHT:20px
+}
+#sales-product-main ul{}
+#sales-product-main ul li{
+    float:left;
+    margin-right:20px;
+}
+#sales-product-main ul li a{
+    display:block;
+}
+#sales-product-main ul li a span{
+    display:block;
+    height:30px;
+    line-height:30px;
+    overflow:hidden;
+    color:#666666;
+    text-align:center;
+}
+#sales-product-main ul li a span:hover{
+    color:#ff8400;
+    text-decoration:underline;
+}
+#sales-product-main ul li em{
+    font-size:14px;
+    color:#ff8400;
+    font-weight:bold;
+    font-style:normal;
+    height:18px;
+    line-height:18px;
+    overflow:hidden;
+    text-align:center;
+    display:block;
+}

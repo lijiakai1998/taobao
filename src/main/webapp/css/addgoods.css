@@ -1,0 +1,43 @@
+.addgoods_form{
+    width: 1000px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+}
+
+.goods_key{
+
+}
+
+.txt{
+    height: 35px;
+    width: 411px;
+}
+
+.add_img{
+    display: inline-block;
+    height: 266px;
+    width: 411px;
+    border: 1px solid #A9A9A9;
+    cursor: pointer;
+}
+
+.add_img i{
+    font-size: 100px;
+    text-align: center;
+    line-height: 266px;
+}
+
+.img{
+    height: 266px;
+    width: 411px;
+    display: none;
+    cursor: pointer;
+    border: 1px solid #A9A9A9;
+}
+
+input[type="file"]{
+    display: none;
+}

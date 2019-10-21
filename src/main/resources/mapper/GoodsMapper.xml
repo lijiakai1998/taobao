@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.GoodsDao">
+    <select id="selGoodById" resultType="com.entity.goods">
+        select * from goods where g_id = #{gId}
+    </select>
+
+    <select id="selGood" parameterType="com.entity.goods" resultType="com.entity.goods">
+        select * from goods where g_category = #{gCategory} and g_attribute = #{gAttribute}
+    </select>
+
+    <select id="selStore" resultType="java.lang.String">
+        select distinct goods.g_store from goods
+    </select>
+
+    <select id="selGoodByStore" resultType="com.entity.goods">
+        select * from goods where g_store = #{gStore}
+    </select>
+
+    <update id="updateView" parameterType="java.lang.Integer">
+        update goods set g_pageView=g_pageView+1 where g_id=#{gId}
+    </update>
+
+    <!--搜索栏模糊查询-->
+    <!--当进行拼接sql语句时候多个判断时候必须前面加 and ;只有一个判断时不用，正常写就行-->
+    <select id="searchGoods" parameterType="com.entity.goods" resultType="com.entity.goods">
+        select * from goods where
+        <if test="gCategory!=null and gCategory!=''">
+            g_category like '%${gCategory}%' or g_attribute like '%${gAttribute}%'
+        </if>
+    </select>
+</mapper>

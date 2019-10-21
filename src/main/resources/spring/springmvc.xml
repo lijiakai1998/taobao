@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/aop
+                           http://www.springframework.org/schema/aop/spring-aop.xsd
+                           http://www.springframework.org/schema/mvc
+                           http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <context:component-scan base-package="com.controller"/><!--注解扫描,针对controller层-->
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"><!--配置视图解析器 -->
+        <property name="prefix" value="/jsp"/><!--前缀-->
+        <property name="suffix" value=".jsp"/><!--后缀-->
+    </bean>
+
+    <!--1,开启springmvc注解模式
+    a.自动注册DefaultAnnotationHandlerMapping,AnnotationMethodHandlerAdapter
+    b.默认提供一系列的功能:数据绑定，数字和日期的format@NumberFormat,@DateTimeFormat
+    c:xml,json的默认读写支持-->
+    <mvc:annotation-driven />
+
+    <!--2.静态资源默认servlet配置-->
+    <!--
+        1).加入对静态资源处理：js,gif,png
+        2).允许使用 "/" 做整体映射-->
+    <mvc:default-servlet-handler/>
+
+  <!--  &lt;!&ndash; 配置拦截器 -->
+    <mvc:interceptors>
+
+
+        <mvc:interceptor>
+            <!-- 拦截所有mvc控制器 -->
+            <mvc:mapping path="/**"/>
+            <!-- mvc:exclude-mapping是另外一种拦截，它可以在你后来的测试中对某个页面进行不拦截，这样就不用在
+                LoginInterceptor的preHandler方法里面获取不拦截的请求uri地址了(优选) -->
+            <mvc:exclude-mapping path="/admin/home" />
+            <mvc:exclude-mapping path="/userLoginServlet" />
+            <mvc:exclude-mapping path="/userRegistServlet"/>
+            <mvc:exclude-mapping path="/jsp/**"/>
+            <mvc:exclude-mapping path="/css/*.css"/>
+            <mvc:exclude-mapping path="/jQuery/*.js"/>
+            <mvc:exclude-mapping path="/js/*.js"/>
+            <mvc:exclude-mapping path="/fonts/*"/>
+            <mvc:exclude-mapping path="/img/*"/>
+            <mvc:exclude-mapping path="/adminSelect"/>
+            <mvc:exclude-mapping path="/adminLogin"/>
+            <mvc:exclude-mapping path="/admin/**"/>
+            <mvc:exclude-mapping path="/goods/**"/>
+            <bean class="com.utils.myAdminLoginInInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+</beans>
